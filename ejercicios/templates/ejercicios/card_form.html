@@ -1,0 +1,20 @@
+<!-- ejercicios/templates/ejercicios/card_form.html -->
+
+{% extends "ejercicios/base.html" %}
+
+{% block content %}
+    {% if card %}
+        <h2>✨ Editar Ficha</h2>
+    {% else %}
+        <h2>✨ Crear Nueva Ficha</h2>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar ficha">
+    </form>
+    <a href="{% url 'card-list' %}">
+        Cancelar
+    </a>
+{% endblock %}

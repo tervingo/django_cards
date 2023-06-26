@@ -1,0 +1,20 @@
+<!-- ejercicios/templates/ejercicios/card.html -->
+
+<article>
+   <h4>{{ card.question }}</h4>
+   {% if not check_card %}
+      <p>{{ card.answer }}</p>
+      <hr>
+      <a href="{% url 'card-update' card.id %}" role="button">
+           ✏️ Editar Ficha
+      </a>
+   {% else %}
+      <details>
+         <summary>Mostrar respuesta</summary>
+         <p>{{ card.answer }}</p>
+      </details>
+      <hr>
+      {% include "ejercicios/card_check_form.html" with solved=True %}
+      {% include "ejercicios/card_check_form.html" with solved=False %}
+   {% endif %}
+</article>

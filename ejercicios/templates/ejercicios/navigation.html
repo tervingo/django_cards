@@ -1,0 +1,8 @@
+<!-- ejercicios/templates/ejercicios/navigation.html -->
+
+{% load cards_tags %}
+
+<nav>
+    <a href="{% url 'card-list' %}">🗂 Todas las fichas</a>
+    {% boxes_as_links %}
+</nav>
